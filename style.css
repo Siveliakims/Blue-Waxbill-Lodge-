@@ -1,0 +1,1518 @@
+
+/* =========================================
+   BLUE WAXBILL LODGE
+   PREMIUM SAFARI WEBSITE
+========================================= */
+
+
+/* =========================================
+   1. ROOT SETTINGS
+========================================= */
+
+:root {
+    --green: #20382b;
+    --green-light: #304c39;
+    --green-dark: #14251c;
+
+    --blue: #07539a;
+    --blue-light: #168ac6;
+
+    --gold: #b18a51;
+    --gold-light: #d2b47c;
+
+    --cream: #f5f1e8;
+    --cream-dark: #e9e1d3;
+
+    --white: #ffffff;
+    --dark: #252923;
+    --gray: #777b73;
+
+    --heading: 'Playfair Display', serif;
+    --body: 'DM Sans', sans-serif;
+
+    --shadow: 0 12px 35px rgba(0,0,0,0.09);
+    --transition: all 0.35s ease;
+}
+
+
+/* =========================================
+   2. RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: var(--body);
+    color: var(--dark);
+    background: var(--cream);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    width: min(1180px, 90%);
+    margin: auto;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+
+/* =========================================
+   3. TYPOGRAPHY
+========================================= */
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--heading);
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: clamp(32px, 4vw, 48px);
+}
+
+p {
+    color: var(--gray);
+}
+
+
+/* =========================================
+   4. HEADER & NAVIGATION
+========================================= */
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(245, 241, 232, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(32,56,43,0.08);
+}
+
+.nav-container {
+    min-height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.brand img {
+    width: 165px;
+    height: 75px;
+    object-fit: contain;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+
+.navigation a {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--green);
+    transition: var(--transition);
+}
+
+.navigation a:hover {
+    color: var(--gold);
+}
+
+.navigation .nav-booking {
+    background: var(--green);
+    color: var(--white);
+    padding: 12px 19px;
+    border-radius: 3px;
+}
+
+.navigation .nav-booking:hover {
+    background: var(--gold);
+    color: var(--white);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 27px;
+    color: var(--green);
+}
+
+
+/* =========================================
+   5. BUTTONS
+========================================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 25px;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid transparent;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--green);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    color: var(--white);
+    border-color: rgba(255,255,255,0.8);
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--green);
+}
+
+.btn-dark {
+    background: var(--green);
+    color: var(--white);
+}
+
+.btn-dark:hover {
+    background: var(--gold);
+}
+
+.text-link {
+    display: inline-block;
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 18px;
+    transition: var(--transition);
+}
+
+.text-link:hover {
+    color: var(--gold);
+}
+
+
+/* =========================================
+   6. HERO SECTION
+========================================= */
+
+.hero {
+    min-height: 740px;
+    height: 100vh;
+    max-height: 900px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+
+    background:
+        url("https://images.unsplash.com/photo-1516426122078-c23e76319801?w=2000")
+        center/cover no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(12,27,19,0.86) 0%,
+            rgba(12,27,19,0.58) 48%,
+            rgba(12,27,19,0.12) 100%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 70px;
+}
+
+.hero-subtitle {
+    color: var(--gold-light);
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 23px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 7vw, 82px);
+    max-width: 750px;
+    margin-bottom: 25px;
+    color: var(--white);
+}
+
+.hero-description {
+    max-width: 520px;
+    color: rgba(255,255,255,0.85);
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hero-bottom {
+    position: absolute;
+    bottom: 28px;
+    left: 5%;
+    right: 5%;
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255,255,255,0.8);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   7. SECTION HEADINGS
+========================================= */
+
+.section-label {
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 17px;
+}
+
+.section-heading {
+    max-width: 700px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.section-heading h2 {
+    color: var(--green);
+    margin-bottom: 17px;
+}
+
+.section-heading p {
+    max-width: 570px;
+    margin: auto;
+    font-size: 14px;
+}
+
+.section-note {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+
+/* =========================================
+   8. WELCOME
+========================================= */
+
+.welcome {
+    background: var(--cream);
+    text-align: center;
+}
+
+.welcome-content {
+    max-width: 790px;
+}
+
+.welcome h2 {
+    color: var(--green);
+    font-size: clamp(34px, 5vw, 52px);
+    margin-bottom: 24px;
+}
+
+.welcome-content > p:not(.section-label) {
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+
+/* =========================================
+   9. ABOUT
+========================================= */
+
+.about {
+    background: var(--white);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 75px;
+}
+
+.about-image {
+    height: 490px;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.about-image:hover img {
+    transform: scale(1.04);
+}
+
+.about-content h2 {
+    color: var(--green);
+    margin-bottom: 25px;
+}
+
+.about-content p:not(.section-label) {
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+
+/* =========================================
+   10. HIGHLIGHTS
+========================================= */
+
+.highlights {
+    background: var(--green);
+}
+
+.highlights .section-heading h2 {
+    color: var(--white);
+}
+
+.highlights .section-heading p {
+    color: rgba(255,255,255,0.7);
+}
+
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.highlight-card {
+    padding: 35px 25px;
+    border: 1px solid rgba(255,255,255,0.13);
+    transition: var(--transition);
+}
+
+.highlight-card:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-7px);
+}
+
+.highlight-icon {
+    display: block;
+    font-size: 32px;
+    color: var(--gold-light);
+    margin-bottom: 20px;
+}
+
+.highlight-card h3 {
+    color: var(--white);
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.highlight-card p {
+    color: rgba(255,255,255,0.68);
+    font-size: 13px;
+}
+
+
+/* =========================================
+   11. ACCOMMODATION
+========================================= */
+
+.accommodation {
+    background: var(--cream);
+}
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.room-card {
+    background: var(--white);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.room-card:hover {
+    transform: translateY(-8px);
+}
+
+.room-card > img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.room-info {
+    padding: 30px;
+}
+
+.room-info h3 {
+    color: var(--green);
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.room-info p {
+    font-size: 13px;
+}
+
+
+/* =========================================
+   12. DINING
+========================================= */
+
+.dining {
+    background: var(--white);
+}
+
+.dining-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.dining-content h2 {
+    color: var(--green);
+    margin-bottom: 25px;
+}
+
+.dining-content p:not(.section-label) {
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.dining-image {
+    height: 460px;
+    overflow: hidden;
+}
+
+.dining-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================================
+   13. EXPERIENCES
+========================================= */
+
+.experiences {
+    background: var(--cream);
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.experience-card {
+    background: var(--white);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.experience-card:hover {
+    transform: translateY(-8px);
+}
+
+.experience-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.experience-info {
+    padding: 25px;
+}
+
+.experience-info h3 {
+    color: var(--green);
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.experience-info p {
+    font-size: 13px;
+}
+
+
+/* =========================================
+   14. AIRPORT TRANSFERS
+========================================= */
+
+.transfers {
+    background: var(--green);
+}
+
+.transfer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.transfer-content h2 {
+    color: var(--white);
+    margin-bottom: 25px;
+}
+
+.transfer-content p:not(.section-label) {
+    color: rgba(255,255,255,0.75);
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.transfer-content strong {
+    color: var(--gold-light);
+}
+
+.transfer-image {
+    height: 430px;
+    overflow: hidden;
+}
+
+.transfer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================================
+   15. CUSTOM PACKAGES
+========================================= */
+
+.packages {
+    background: var(--cream-dark);
+}
+
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.package-card {
+    background: var(--white);
+    padding: 32px 25px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.package-card:hover {
+    transform: translateY(-7px);
+}
+
+.package-card span {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 23px;
+}
+
+.package-card h3 {
+    color: var(--green);
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.package-card p {
+    font-size: 13px;
+}
+
+.package-bottom {
+    text-align: center;
+    background: var(--green);
+    padding: 55px 25px;
+    margin-top: 45px;
+}
+
+.package-bottom h3 {
+    color: var(--white);
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.package-bottom p {
+    color: rgba(255,255,255,0.75);
+    max-width: 570px;
+    margin: 0 auto 25px;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   16. GALLERY
+========================================= */
+
+.gallery {
+    background: var(--white);
+}
+
+.gallery-category {
+    margin-bottom: 65px;
+}
+
+.gallery-title {
+    margin-bottom: 25px;
+}
+
+.gallery-title h3 {
+    color: var(--green);
+    font-size: 28px;
+}
+
+.gallery-title p {
+    font-size: 13px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    background: var(--cream-dark);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.025);
+    filter: brightness(0.85);
+}
+
+
+/* =========================================
+   17. BOOKING
+========================================= */
+
+.booking {
+    background: var(--cream);
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 65px;
+    align-items: start;
+}
+
+.booking-content {
+    position: sticky;
+    top: 120px;
+}
+
+.booking-content h2 {
+    color: var(--green);
+    margin-bottom: 25px;
+}
+
+.booking-content p:not(.section-label) {
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.booking-points {
+    list-style: none;
+}
+
+.booking-points li {
+    padding: 10px 0;
+    color: var(--green);
+    font-size: 13px;
+    border-bottom: 1px solid rgba(32,56,43,0.12);
+}
+
+.booking-points li::before {
+    content: "✓";
+    color: var(--gold);
+    margin-right: 12px;
+    font-weight: bold;
+}
+
+.booking-form {
+    background: var(--white);
+    padding: 40px;
+    box-shadow: var(--shadow);
+}
+
+.booking-form h3 {
+    color: var(--green);
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.booking-form > p {
+    font-size: 12px;
+    margin-bottom: 28px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #deded5;
+    background: #fbfaf7;
+    outline: none;
+    color: var(--dark);
+    font-size: 13px;
+    border-radius: 2px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--gold);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.service-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.service-options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.service-options input {
+    width: auto;
+    accent-color: var(--green);
+}
+
+.form-submit {
+    width: 100%;
+    border: none;
+}
+
+.form-note {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 11px;
+}
+
+
+/* =========================================
+   18. CONTACT
+========================================= */
+
+.contact {
+    background: var(--white);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.contact-card {
+    text-align: center;
+    padding: 35px 25px;
+    background: var(--cream);
+}
+
+.contact-card span {
+    display: block;
+    font-size: 30px;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.contact-card h3 {
+    color: var(--green);
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.contact-card p,
+.contact-card a {
+    font-size: 13px;
+}
+
+.contact-card a {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.map-placeholder {
+    min-height: 250px;
+    margin-top: 40px;
+    background: var(--green);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    text-align: center;
+}
+
+.map-placeholder p {
+    color: var(--white);
+    letter-spacing: 2px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.map-placeholder span {
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+}
+
+
+/* =========================================
+   19. FOOTER
+========================================= */
+
+.footer {
+    background: var(--green-dark);
+    padding: 75px 0 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 55px;
+}
+
+.footer-brand img {
+    width: 190px;
+    height: 120px;
+    object-fit: contain;
+    background: var(--white);
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.footer-brand p {
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+    margin-top: 18px;
+    max-width: 280px;
+}
+
+.footer-links h3 {
+    color: var(--gold-light);
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.footer-links a,
+.footer-links p {
+    display: block;
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    margin-bottom: 12px;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--gold-light);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding: 22px 5%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+}
+
+
+/* =========================================
+   20. WHATSAPP BUTTON
+========================================= */
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 900;
+    background: #218b51;
+    color: var(--white);
+    padding: 14px 20px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    transition: var(--transition);
+}
+
+.whatsapp-float:hover {
+    background: var(--green);
+    transform: translateY(-4px);
+}
+
+
+/* =========================================
+   21. ANIMATIONS
+========================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content {
+    animation: fadeUp 1s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================
+   22. TABLET RESPONSIVENESS
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .navigation {
+        gap: 13px;
+    }
+
+    .navigation a {
+        font-size: 11px;
+    }
+
+    .brand img {
+        width: 135px;
+    }
+
+    .highlight-grid,
+    .package-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================
+   23. MOBILE NAVIGATION
+========================================= */
+
+@media (max-width: 760px) {
+
+    .section-padding {
+        padding: 75px 0;
+    }
+
+    .nav-container {
+        min-height: 75px;
+    }
+
+    .brand img {
+        width: 130px;
+        height: 65px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navigation {
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: var(--cream);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0 5%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, padding 0.4s ease;
+        box-shadow: var(--shadow);
+    }
+
+    .navigation.active {
+        max-height: 550px;
+        padding-top: 15px;
+        padding-bottom: 20px;
+    }
+
+    .navigation a {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(32,56,43,0.1);
+        font-size: 13px;
+    }
+
+    .navigation .nav-booking {
+        text-align: center;
+        margin-top: 12px;
+        padding: 12px;
+    }
+
+    .hero {
+        min-height: 680px;
+        height: 90vh;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-bottom {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .about-grid,
+    .dining-grid,
+    .transfer-grid,
+    .booking-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+}
+  
+/* =========================================
+   25. INTERACTIVE GALLERY VIEWER
+========================================= */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    background: rgba(0, 0, 0, 0.94);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all 0.3s ease;
+    padding: 50px 65px;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-image {
+    max-width: 90%;
+    max-height: 78vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 35px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    color: var(--gold-light);
+}
+
+.lightbox-close {
+    top: 15px;
+    right: 25px;
+    font-size: 42px;
+}
+
+.lightbox-prev {
+    left: 15px;
+}
+
+.lightbox-next {
+    right: 15px;
+}
+
+.lightbox-caption {
+    position: absolute;
+    bottom: 15px;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+}
+
+.gallery-grid img {
+    cursor: zoom-in;
+}
+
+
+/* =========================================
+   26. SCROLL REVEAL ANIMATIONS
+========================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   27. LIGHTBOX MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .lightbox {
+        padding: 45px 35px;
+    }
+
+    .lightbox-image {
+        max-width: 100%;
+        max-height: 70vh;
+    }
+
+    .lightbox-prev {
+        left: 0;
+        font-size: 25px;
+    }
+
+    .lightbox-next {
+        right: 0;
+        font-size: 25px;
+    }
+
+}
+
+/* =========================================
+   28. MOBILE LAYOUT AND FORM FIXES
+========================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+.container,
+section,
+header,
+footer,
+main {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.menu-toggle {
+    flex: 0 0 auto;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.menu-toggle:focus-visible,
+.navigation a:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
+
+.booking-form,
+.booking-grid > *,
+.form-group {
+    min-width: 0;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    display: block;
+    max-width: 100%;
+    min-width: 0;
+}
+
+@media (max-width: 760px) {
+    .nav-container {
+        width: 90%;
+        gap: 12px;
+    }
+
+    .brand {
+        min-width: 0;
+        max-width: calc(100% - 60px);
+    }
+
+    .brand img {
+        width: min(130px, 100%);
+        height: 65px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        padding: 0;
+        font-size: 28px;
+        line-height: 1;
+    }
+
+    .navigation {
+        left: 0;
+        right: 0;
+        width: 100%;
+        box-sizing: border-box;
+        visibility: hidden;
+    }
+
+    .navigation.active {
+        visibility: visible;
+    }
+
+    .hero {
+        width: 100%;
+        min-height: 650px;
+        height: auto;
+        max-height: none;
+        padding: 120px 0 95px;
+        background-position: center;
+    }
+
+    .hero-content {
+        width: 90%;
+        max-width: 100%;
+        padding-top: 0;
+    }
+
+    .hero h1 {
+        max-width: 100%;
+        font-size: clamp(39px, 9vw, 54px);
+        overflow-wrap: anywhere;
+    }
+
+    .hero-subtitle {
+        max-width: 100%;
+        letter-spacing: 2px;
+        overflow-wrap: anywhere;
+    }
+
+    .hero-description {
+        max-width: 100%;
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero-bottom {
+        left: 5%;
+        right: 5%;
+        gap: 12px;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .booking-content {
+        position: static;
+        top: auto;
+    }
+
+    .booking-grid {
+        grid-template-columns: minmax(0, 1fr);
+        width: 90%;
+        gap: 30px;
+    }
+
+    .booking-form {
+        width: 100%;
+        max-width: 100%;
+        padding: 26px 18px;
+        box-sizing: border-box;
+    }
+
+    .form-row,
+    .service-options {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+    }
+
+    .service-options {
+        gap: 12px;
+    }
+
+    .contact-grid,
+    .experience-grid,
+    .room-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .section-padding {
+        padding: 62px 0;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .booking-form {
+        padding: 22px 14px;
+    }
+}
+
